@@ -27,12 +27,15 @@ const calendrierDuCrayon = {
 // |__|
 
 function drawMyPen(mois) {
-  const etages = calendrierDuCrayon[mois];
+  const normalizedMois = mois.toLowerCase();
+  const etages = calendrierDuCrayon[normalizedMois];
+
   if (!etages) {
     return console.log("Mois invalide");
   } else {
     console.log(" /\\ ");
     console.log("/__\\");
+
     for (let i = 0; i < etages; i++) {
       console.log("||||");
     }
@@ -41,13 +44,15 @@ function drawMyPen(mois) {
   if (etages <= 4) {
     console.log("|__|");
     console.log("|__|");
-    return console.log(`voici le crayon pour le mois de ${mois}`);
   } else {
     console.log("|__|");
     console.log("|  |");
     console.log("|__|");
-    return console.log(`voici le crayon pour le mois de ${mois}`);
   }
+
+  return console.log(`voici le crayon pour le mois de ${normalizedMois}`);
 }
+
 drawMyPen("testerreur");
 drawMyPen("juin");
+drawMyPen("septeMbre");
